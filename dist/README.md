@@ -4,6 +4,25 @@
 
 **작동 원리**: 창 가운데 영역의 *아래쪽 화면*을 `java.awt.Robot`(화면 캡처)으로 초당 약 30번 읽어 효과를 적용한 뒤 그 자리에 그립니다. 창이 자기 자신을 다시 찍으면 거울 현상이 생기므로, `SetWindowDisplayAffinity(WDA_EXCLUDEFROMCAPTURE)`로 이 창을 화면 캡처에서 제외합니다.
 
+## 화면 예시
+
+아래 이미지는 모두 같은 **테스트 화면**(그라데이션 배경, 도형, 글자, 대각선)에 각 효과를 적용한 결과입니다. 이 프로그램의 창은 화면 캡처에서 제외되기 때문에 실제 창을 스크린샷으로 찍을 수 없어, 프로그램이 쓰는 효과 코드와 실제 메뉴 화면을 그대로 그려서 만들었습니다. 창 제목줄은 포함하지 않았습니다.
+
+<table>
+<tr>
+<td><img src="docs/images/ui-mosaic.png" alt="모자이크 선택 화면" width="440"><br><sub>모자이크(2번) 선택 — 왼쪽이 변환 영역, 오른쪽이 메뉴</sub></td>
+<td><img src="docs/images/ui-ascii.png" alt="ASCII 아트 선택 화면" width="440"><br><sub>ASCII 아트(9번) 선택 — 옵션 영역에 칸 크기, 복사 버튼 활성</sub></td>
+</tr>
+</table>
+
+| | | |
+|:---:|:---:|:---:|
+| <img src="docs/images/source.png" alt="테스트 화면" width="280"><br>테스트 화면(변환 전) | <img src="docs/images/fx2-mosaic.png" alt="모자이크" width="280"><br>2 모자이크 | <img src="docs/images/fx3-grayscale.png" alt="흑백" width="280"><br>3 흑백 |
+| <img src="docs/images/fx4-threshold.png" alt="흑백 2색" width="280"><br>4 흑백 2색 | <img src="docs/images/fx5-dot16.png" alt="도트 16색" width="280"><br>5 도트 16색 | <img src="docs/images/fx6-gameboy.png" alt="도트 게임보이" width="280"><br>6 도트 게임보이 |
+| <img src="docs/images/fx7-dotgrid.png" alt="도트 격자" width="280"><br>7 도트 격자 | <img src="docs/images/fx8-dot16grid.png" alt="도트 16색+격자" width="280"><br>8 도트 16색+격자 | <img src="docs/images/fx9-ascii.png" alt="ASCII 아트" width="280"><br>9 ASCII 아트 |
+
+(1 원본은 변환 전 테스트 화면과 같습니다. 이미지는 기본 옵션 값(블록 크기 모자이크 10, 도트 8, 임계값 128, ASCII 칸 8x16)으로 만들었습니다. 이 화면에서는 ASCII 아트의 글자 "ASCII ART"처럼 얇고 작은 모양은 읽기 어려워지는 것이 정상입니다.)
+
 ## 요구사항
 
 - Windows 10 버전 2004 이상 (자기 창 제외 API `WDA_EXCLUDEFROMCAPTURE` 지원 버전). **개발과 검증은 Windows 11에서만 했습니다.**

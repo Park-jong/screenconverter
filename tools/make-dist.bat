@@ -39,6 +39,11 @@ if not exist dist mkdir dist
 copy /y "target\converter.jar" "dist\converter.jar" >nul || goto copyfail
 copy /y "tools\dist-files\*.bat" "dist\" >nul || goto copyfail
 copy /y "README.md" "dist\README.md" >nul || goto copyfail
+rem README images (docs\images) are copied next to the README so its relative image links work in dist.
+if exist "docs\images" (
+  if not exist "dist\docs\images" mkdir "dist\docs\images"
+  copy /y "docs\images\*.png" "dist\docs\images\" >nul || goto copyfail
+)
 echo.
 echo dist is ready: %ROOT%\dist
 popd
