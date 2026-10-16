@@ -1,0 +1,11 @@
+target/
+*.class
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Claude Code 설정·에이전트 정의·훅 (저장소에 포함하지 않음)
+.claude/
